@@ -14,6 +14,8 @@ export default function SideBar({ visiblity, info }) {
   }
 
   const batteryLife = convertSeconds(parseInt(battery?.time_left) || 0);
+  const ram = `${parseInt(memory?.RAM?.percent)}%`;
+  const swap = `${parseInt(memory?.Swap?.percent)}%`;
 
   return (
     <div
@@ -89,7 +91,7 @@ export default function SideBar({ visiblity, info }) {
           >
             <div
               className="bg-black/80 h-2 rounded-full"
-              style={{ width: memory?.RAM?.percent || "0" }}
+              style={{ width: ram || "0" }}
             ></div>
           </div>
           <span className="text-xs text-gray-500 transition-all duration-300 ease-out truncate">
@@ -114,7 +116,7 @@ export default function SideBar({ visiblity, info }) {
           >
             <div
               className="bg-black/80 h-2 rounded-full"
-              style={{ width: memory?.Swap?.percent || "0" }}
+              style={{ width: swap || "0" }}
             ></div>
           </div>
           <span className="text-xs text-gray-500 transition-all duration-300 ease-out truncate">
