@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* index.css */
+
+/* Base reset so we can style both Chrome/Safari and Firefox */
+meter {
+    width: 100%;
+    height: 1rem;
+    /* tweak height to suit */
+    appearance: none;
+    -webkit-appearance: none;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+/* WebKit (Chrome, Safari) track/background */
+meter::-webkit-meter-bar {
+    background: #e5e7eb;
+    /* dark-gray track */
+
+}
+
+/* WebKit optimum/suboptimum/even-less-good fills */
+meter::-webkit-meter-optimum-value,
+meter::-webkit-meter-suboptimum-value,
+meter::-webkit-meter-even-less-good-value {
+    background: #000000db;
+    /* near-black fill */
+
+}
+
+/* Firefox track & fill */
+meter::-moz-meter-bar {
+    background: #000000db;
+    /* Firefox only has one pseudo-element */
+
+}
