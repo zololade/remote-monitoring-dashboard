@@ -22,79 +22,102 @@ export default function SideBar({ visiblity, info }) {
   p-4 mx-3 relative mt-5 rounded shadow border shadow-gray-600
   ${
     visiblity
-      ? "opacity-100 translate-x-0 scale-100 "
-      : "opacity-0 h-0 p-0 m-0 w-auto border-0 pointer-events-none overflow-hidden -translate-x-full"
+      ? "opacity-100 translate-x-0 scale-100"
+      : "opacity-0 scale-95 pointer-events-none overflow-x-scroll scrollbar-none -translate-x-full"
   }
 `}
     >
       <span
-        className={`absolute -top-3 left-1 bg-white text-sm font-medium text-gray-600`}
+        className={`absolute -top-3 left-1 bg-white text-sm font-medium text-gray-600 transition-all duration-300 ease-out`}
       >
         Overview
       </span>
-      <div className={`pb-3 border-b border-gray-200 lg:transform `}>
+      <div
+        className={`pb-3 border-b border-gray-200 transition-all duration-300 ease-out`}
+      >
         <img
           src={computer}
           alt="computer"
-          className={`w-full h-24 object-contain opacity-80 rounded-lg border border-gray-200 shadow-sm `}
+          className={`w-full h-24 object-contain opacity-80 rounded-lg border border-gray-200 shadow-sm transition-all duration-300 ease-out`}
         />
       </div>
-      <div className={`mt-6 flex flex-col space-y-4 text-sm text-gray-700`}>
+      <div
+        className={`mt-6 flex flex-col text-sm text-gray-700 transition-all duration-300 ease-out`}
+      >
         {/* Battery usage with meter */}
-        <div className={`flex flex-col `}>
-          <label htmlFor="battery" className="flex items-center space-x-2">
-            <span>🔋</span>
-            <span className="font-medium">Battery</span>
-          </label>
-          <meter
-            id="battery"
-            className="w-full h-4"
-            value={parseInt(battery?.percent) ?? 0}
-            min="0"
-            max="100"
+        <div
+          className={`flex flex-col mb-2 transition-all duration-300 ease-out`}
+        >
+          <label
+            htmlFor="battery"
+            className="flex items-center space-x-2 transition-all duration-300 ease-out"
           >
-            {parseInt(battery?.percent) ?? 0} out of {100}
-          </meter>
-          <span className="text-xs text-gray-500 ">
+            <span>🔋</span>
+            <span className="font-medium transition-all duration-300 ease-out truncate">
+              Battery
+            </span>
+          </label>
+          <div
+            id="battery"
+            className="w-full bg-gray-200 rounded-full h-2 mt-2 mb-2 transition-all duration-300 ease-out"
+          >
+            <div
+              className="bg-black/80 h-2 rounded-full"
+              style={{ width: battery?.percent || "0" }}
+            ></div>
+          </div>
+          <span className="text-xs text-gray-500 transition-all duration-300 ease-out truncate">
             {battery?.plugged_in ? "charging" : batteryLife}
           </span>
         </div>
         {/* meter for memories */}
-        <div className={`flex flex-col space-y-4 text-sm text-gray-700 `}>
-          <label htmlFor="memory" className="flex items-center space-x-2 ">
-            <span>🧠</span>
-            <span className="font-medium">Memory Usage</span>
-          </label>
-          <meter
-            id="memory"
-            className="meter-base"
-            value={parseInt(memory?.RAM?.percent) ?? 0}
-            min="0"
-            max="100"
+        <div
+          className={`flex flex-col text-sm mb-2 text-gray-700 transition-all duration-300 ease-out`}
+        >
+          <label
+            htmlFor="memory"
+            className="flex items-center space-x-2 transition-all duration-300 ease-out"
           >
-            {parseInt(memory?.RAM?.percent) ?? 0}%
-          </meter>
-          <span className="text-xs text-gray-500">
+            <span>🧠</span>
+            <span className="font-medium transition-all duration-300 ease-out truncate">
+              Memory Usage
+            </span>
+          </label>
+          <div
+            id="memory"
+            className="w-full bg-gray-200 rounded-full h-2 mt-2 mb-2 transition-all duration-300 ease-out"
+          >
+            <div
+              className="bg-black/80 h-2 rounded-full"
+              style={{ width: memory?.RAM?.percent || "0" }}
+            ></div>
+          </div>
+          <span className="text-xs text-gray-500 transition-all duration-300 ease-out truncate">
             {parseInt(memory?.RAM?.percent) ?? 0}%
           </span>
         </div>
         <div
-          className={`flex flex-col space-y-4 text-sm text-gray-700 lg:transform`}
+          className={`flex flex-col text-sm mb-2 text-gray-700 transition-all duration-300 ease-out`}
         >
-          <label htmlFor="memory" className="flex items-center space-x-2">
-            <span>♻️</span>
-            <span className="font-medium">Swap</span>
-          </label>
-          <meter
-            id="memory"
-            className="meter-base"
-            value={parseInt(memory?.Swap?.percent) ?? 0}
-            min="0"
-            max="100"
+          <label
+            htmlFor="memory"
+            className="flex items-center space-x-2 transition-all duration-300 ease-out"
           >
-            {parseInt(memory?.Swap?.percent) ?? 0}%
-          </meter>
-          <span className="text-xs text-gray-500">
+            <span>♻️</span>
+            <span className="font-medium transition-all duration-300 ease-out truncate">
+              Swap
+            </span>
+          </label>
+          <div
+            id="memory"
+            className="w-full bg-gray-200 rounded-full h-2 mt-2 mb-2 transition-all duration-300 ease-out"
+          >
+            <div
+              className="bg-black/80 h-2 rounded-full"
+              style={{ width: memory?.Swap?.percent || "0" }}
+            ></div>
+          </div>
+          <span className="text-xs text-gray-500 transition-all duration-300 ease-out truncate">
             {parseInt(memory?.Swap?.percent) ?? 0}%
           </span>
         </div>

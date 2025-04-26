@@ -1,37 +1,28 @@
 @import "tailwindcss";
 
-/* index.css */
 
-/* Base reset so we can style both Chrome/Safari and Firefox */
-meter {
-    width: 100%;
-    height: 1rem;
-    /* tweak height to suit */
-    appearance: none;
-    -webkit-appearance: none;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
+/* width */
+/* tailwind.css or global.css */
+.scrollbar-none::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
 }
 
-/* WebKit (Chrome, Safari) track/background */
-meter::-webkit-meter-bar {
-    background: #e5e7eb;
-    /* dark-gray track */
-
+.scrollbar-none::-webkit-scrollbar-track {
+    background: none;
 }
 
-/* WebKit optimum/suboptimum/even-less-good fills */
-meter::-webkit-meter-optimum-value,
-meter::-webkit-meter-suboptimum-value,
-meter::-webkit-meter-even-less-good-value {
-    background: #000000db;
-    /* near-black fill */
-
+.scrollbar-none::-webkit-scrollbar-thumb {
+    background: none;
 }
 
-/* Firefox track & fill */
-meter::-moz-meter-bar {
-    background: #000000db;
-    /* Firefox only has one pseudo-element */
+.scrollbar-none::-webkit-scrollbar-thumb:hover {
+    background: none;
+}
 
+.scrollbar-none {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
