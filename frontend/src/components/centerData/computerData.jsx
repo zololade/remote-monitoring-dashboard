@@ -24,8 +24,6 @@ export default function CenterTemp(props) {
         <span>{`${RAM.total}, ${RAM.used}, ${parseInt(RAM.percent)}`}</span>
         <br />
         <span>{`${Swap.total}, ${Swap.used}, ${parseInt(Swap.percent)}`}</span>
-        <br />
-        <span></span>
       </div>
     </div>
   );

@@ -36,7 +36,9 @@ function WebSocketChat() {
         <span className="absolute -top-3 left-3 bg-white text-sm font-medium text-gray-600">
           Computer Dashboard
         </span>
-        <h1>{returnData?.user ?? `Loading...`}'s Computer</h1>
+        <h1 className="truncate">
+          {returnData?.user ?? `Loading...`}'s Computer
+        </h1>
         <Hamburger passClick={{ handleClick, open }} />
       </div>
       <section
