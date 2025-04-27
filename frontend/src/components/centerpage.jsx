@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default function CenterPage({ info, visiblity }) {
   return (
     <div
-      className={`lg:opacity-100 p-4 mt-5 overflow-auto transition-all duration-600 ease-in ${
+      className={`lg:opacity-100 p-4 mt-3 overflow-auto transition-all duration-600 ease-in ${
         visiblity ? "opacity-0 " : "opacity-100"
       }`}
     >

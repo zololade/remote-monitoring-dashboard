@@ -17,7 +17,7 @@ async def websocket_endpoint(websocket: WebSocket):
         while True:
             res = fetcher.main()
             await websocket.send_text(res)
-            await asyncio.sleep(2)
+            await asyncio.sleep(20)
 
     except WebSocketDisconnect:
         print("Client disconnected")

@@ -2,6 +2,7 @@
 
 import json
 import psutil
+from .memory import get_memory_history
 
 
 def name():
@@ -58,10 +59,14 @@ def main():
     memory = get_memory_info()
     disk = get_disk_info()
     user = name()
+    memory_history = get_memory_history()
 
     return json.dumps(
-        {"battery": battery, "memory": memory, "disk": disk, "user": user}
+        {
+            "battery": battery,
+            "memory": memory,
+            "disk": disk,
+            "user": user,
+            "memory_history": memory_history,
+        }
     )
-
-
-main()

@@ -8,6 +8,8 @@ function WebSocketChat() {
   const connetion = useRef(null);
   const [returnData, setReturnData] = useState("");
   const [open, setOpen] = useState(true);
+  const user = returnData?.user;
+  const user_capitalized = user?.charAt(0).toUpperCase() + user?.slice(1);
 
   useEffect(() => {
     connetion.current = new WebSocket("ws://127.0.0.1:8000/ws");
@@ -37,7 +39,7 @@ function WebSocketChat() {
           Computer Dashboard
         </span>
         <h1 className="truncate">
-          {returnData?.user ?? `Loading...`}'s Computer
+          {user_capitalized || `Loading...`}'s Computer
         </h1>
         <Hamburger passClick={{ handleClick, open }} />
       </div>
